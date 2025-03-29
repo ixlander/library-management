@@ -3,6 +3,11 @@
 ## 📖 About the Project
 **Library Management System** is a web application designed for managing books and manga. Users can browse available books, leave reviews, add favorites, and track their reading progress.
 
+## Team Members:
+- Abakarov Abumuslim
+- Beisen Abylai
+- Kumar Aray
+
 ## 🔧 Technologies
 
 ### Frontend:
