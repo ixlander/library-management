@@ -1,0 +1,12 @@
+<h1>{{ book.title }}</h1>
+<p>{{ book.description }}</p>
+<button (click)="addToFavorites()">Add to Favorites</button>
+
+<h2>Update Reading Progress</h2>
+<input type="number" min="0" max="100" [(ngModel)]="progress" />
+<button (click)="updateProgress()">Update Progress</button>
+
+<h2>Submit a Review</h2>
+<input type="number" min="1" max="5" [(ngModel)]="review.rating" placeholder="Rating (1-5)" />
+<textarea [(ngModel)]="review.comment" placeholder="Comment"></textarea>
+<button (click)="submitReview()">Submit Review</button>
