@@ -1,0 +1,18 @@
+<!-- Top-Bar Panel -->
+<div id="top-bar">
+    <!-- <img id="logo-img" src="assets/images/Logo.png"> -->
+    <h2 id="logo-text">Librarium</h2>
+    <div id="categories">
+        <a [routerLink]="['/home']">Home</a>
+        <a *ngIf="this.logged" [routerLink]="['/books']">Books</a>
+        <a [routerLink]="['/about']">About</a>
+        <a *ngIf="this.logged" [routerLink]="['/personal-page']">Profile</a>
+    </div>
+    <div id="login-block">
+        <a *ngIf="!this.logged" [routerLink]="['/sign-in']">Sign in</a>
+        <a *ngIf="!this.logged" [routerLink]="['/sign-up']">Sign up</a>
+        <a *ngIf="this.logged" (click)="logout() " [routerLink]="['/home']">Log out</a>
+    </div>
+</div>
+
+<div id="line"></div>

@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="form-box">
+      <div class="sign-in"><h1>Sign Up</h1></div>
+      <form class="form" action="/users/register" method="post">
+        <label for="" required></label>
+        <input type="email" [(ngModel)]="email" placeholder="Email" name="email" required />
+        <label for="inputEmailLogin"></label>
+        <input type="text" [(ngModel)]="username" placeholder="Username" id="inputEmailLogin" name="username" required >
+        <label for="inputPassword"></label>
+        <input type="password" [(ngModel)]="password" placeholder="Password" id="inputPassword" name="password" required >
+        <label></label>
+        <input type="password" [(ngModel)]="confirmPassword" placeholder="Confirm Password" name="confirmPassword" required />
+        <button type="submit" (click)="onSubmit()" id="submit">Sign Up Librarium</button>
+        <div class="sign_up">Already have account?
+            <a routerLink="/sign-in" class="raw-link">Sign In</a>
+        </div>
+      </form>
+  </div>
+  <div>
+    <p id="kkk">Let's get<br>acquainted!</p>
+  </div>
+</div>
+
+    <!-- <body>
+        <div class="container">
+            <div class="zagolovok">
+                <img src="/assets/images/logotipe.png" alt="" id="logo" width="30px">
+                <h1>frontand</h1>
+            </div>
+            <div class="form-box">
+                <div class="sign-in"><h1>Sign Up</h1></div>
+                <form class="form" action="/users/register" method="post">
+                  <label for="" required></label>
+                  <input type="text" [(ngModel)]="first_name" placeholder="first name" name="first_name" required />
+                  <label for="" required></label>
+                  <input type="text" [(ngModel)]="last_name" placeholder="last name" name="last_name" required />
+                  <label for="" required></label>
+                  <input type="email" [(ngModel)]="email" placeholder="Email" name="email" required />
+                  <label for="inputEmailLogin"></label>
+                  <input type="text" [(ngModel)]="username" placeholder="Username" id="inputEmailLogin" name="username" required >
+                  <label for="inputPassword"></label>
+                  <input type="password" [(ngModel)]="password" placeholder="Password" id="inputPassword" name="password" required >
+                  <label></label>
+                  <input type="password" [(ngModel)]="confirmPassword" placeholder="Confirm Password" name="confirmPassword" required />
+                  <button type="submit" (click)="onSubmit()" id="submit">Sign Up frontand</button>
+                  <div class="sign_up">Already have account?
+                      <a routerLink="/sign-in" class="raw-link">Sign In</a>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </body> -->
+
+

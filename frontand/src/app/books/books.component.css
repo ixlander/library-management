@@ -1,0 +1,124 @@
+#main-container {
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+}
+  
+#current-cat {
+  font-size: 44px;
+  margin-left: 50px;
+  font-family: 'Proxima Nova', sans-serif;
+  margin-bottom: -40px;
+  font-weight: 600;
+}
+  
+.cool-text {
+  font-family: 'Proxima Nova', sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+#categories-list {
+  top: 0;
+  height: 100vh;
+  margin-left: 50px;
+  font-size: 20px;
+}
+
+.categories-checkbox label {
+  display: block;
+  padding-left: 25px; 
+  margin-bottom: 10px;
+}
+  
+#books-part {
+  margin-left: 120px;
+}
+  
+#book {
+  display: flex;
+  flex-direction: row;
+  width: 800px;
+  margin: 35px 0;
+}
+  
+#book img {
+  float: left;
+  margin-right: 3%;
+  width: 20%;
+  height: 10%;
+}
+  
+#book p {
+  display: block;
+  margin: 0;
+}
+  
+#book div {
+  display: block;
+}
+  
+#book div p {
+  margin-bottom: 10px;
+}
+  
+#books-name {
+  font-size: 25px;
+}
+  
+#book-description {
+  font-size: 15px;
+  color: #2b2b25;
+}
+  
+#line {
+  margin-top: 2%;
+  background-color: #8a8989;
+  height: 2px;
+}
+
+#categories-list, #books-part {
+  display: inline-block;
+  vertical-align: top;
+  height: 100%;
+  margin-top: -10px;
+}
+
+#read-button {
+  background-color: #4CAF50; 
+  border: none; 
+  color: white; 
+  padding: 12px 24px;
+  text-align: center; 
+  text-decoration: none; 
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px; 
+}
+
+#books-search input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-top: 25px;
+}
+
+#books-search input[type="text"]:focus {
+  outline: none;
+  border-color: #00cc3a;
+  box-shadow: 0 0 5px #078a21;
+}
+
+#books-name a {
+  color: #000000;
+  text-decoration: none;
+}
+
+#books-name a:hover {
+  text-decoration: underline;
+}

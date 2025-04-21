@@ -1,0 +1,156 @@
+/* First page */
+* {
+    font-family: 'Proxima Nova', sans-serif;
+}
+
+@font-face {
+    font-family: "MyCustomFont";
+    src: url("/assets/fonts/NoeDisplay-Bold.ttf");
+}
+
+#first-page {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.label-text {
+    font-size: 55px;
+    font-family: 'Open Sans';
+    font-weight: bold;
+    color: green;
+}
+
+#second-page-text {
+    margin-left: 20px;
+}
+
+#secondd {
+    margin-top: -40px;
+    padding: 0;
+}
+
+.podz {
+    font-size: 25px;
+}
+
+.last {
+    color: gray;
+    font-size: 17px;
+}
+
+#first-page p {
+    margin-left: 180px; 
+    padding: 20px;
+}
+
+.green-button {
+    background-color: green; 
+    color: white; 
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.2rem; 
+    cursor: pointer;
+    font-weight: 700;
+    margin-top: 10px;
+    border-radius: 4px; 
+    box-shadow: 2px 2px 2px rgba(88, 88, 88, 0.2); 
+    transition: all 0.3s ease; 
+}
+  
+.green-button:hover {
+    background-color: rgb(9, 124, 9); 
+    box-shadow: 4px 4px 4px rgba(113, 113, 113, 0.4); 
+}
+
+#book-shelf {
+    width: 700px;
+    height: auto;
+    padding-right: 100px;
+    margin-left: 50px;
+    margin-top: 100px;
+}
+
+/* First page End */
+
+/* Arrows */
+
+#arrow {
+    width: 200px;
+    height: 300px;
+    margin-left: 690px;
+}
+
+#arrowr {
+    width: 200px;
+    height: 300px;
+    margin-left: 400px;
+    margin-top: -5px;
+}
+
+/* Arrows end */
+
+/* Second page */
+
+#second-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#laptop-img {
+    width: 660px;
+    height: auto;
+    padding-left: -50px;
+}
+
+#second-page p {
+    width: 500px;
+    margin-left: 55px;
+}
+
+/* Third pade */
+#third-page {
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+#review-label {
+    margin-top: 130px;
+    text-align: center;
+}
+
+.review {
+    width: 300px;
+    height: 265px;
+    margin: 0 25px;
+}
+
+.review-image {
+    width: 200px;
+    margin: 0 50px;
+}
+
+.review-text {
+    margin-top: 35px;
+    line-height: 26px;
+}
+
+.review-author {
+    margin-top: 35px;
+}
+
+.review-text, .review-author {
+    text-align: center;
+}
+
+.quote {
+    font-size: 25px;
+    color: #38b438
+}
+
+/* End */
+

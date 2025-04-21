@@ -1,0 +1,40 @@
+<div id="main-container">
+    <div id="current-cat">
+        <p>{{currentCategory}} books</p>
+    </div>
+    <div id="categories-list">
+        <div id="all-categories-text">
+            <p id="text-category" class="cool-text">Categories</p>
+        </div>
+        <div *ngFor='let category of categories' class="categories-checkbox">
+            <label><input type="checkbox" (change)="getCategoryBooks(category)" class="lbls">{{category.name}}</label>
+        </div>
+        <div> 
+            <p id="text-category" class="cool-text">Sort by</p>
+            <div class="categories-checkbox">
+                <label><input type="checkbox" (change)="sortByYear()">Year</label>
+                <label><input type="checkbox" (change)="sortByRating()">Rating</label>
+            </div>
+        </div>
+    </div>
+    <div id="books-part">
+        <div id="books-search">
+            <input type="text" [(ngModel)]="searchText" placeholder="Search books...">
+        </div>
+        <div id="books-list">
+            <div *ngFor="let book of books | filter: searchText" id="book">
+                <img id="book-img" src={{book.image}}> 
+                <div>
+                    <p id="books-name" class="cool-text"><a href="/books/{{book.id}}">{{book.title}}</a></p>
+                    <p id="book-author">{{book.author}} </p>
+                    <p id="book-description">{{book.description}}</p>
+                    <p id="book-category">Genre: {{book.category.name}}</p>
+                    <p id="book-year">Year: {{book.year}}</p>
+                    <!-- <p id="book-rating">Rating: {{book.rating}}</p> -->
+                    <!-- <a routerLink="/books/{{book.id}}"><button id="read-button">Read</button></a> -->
+                </div>
+                <div id="line"></div>
+            </div>
+        </div>
+    </div>
+</div>

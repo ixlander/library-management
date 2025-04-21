@@ -1,0 +1,117 @@
+.sign-in-page{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  
+    -webkit-box-flex: 1;
+    -webkit-box-pack: justify;
+    flex-grow: 1;
+  }
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  .sign-in-form-container{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    max-width: 25rem;
+    padding-left: 20rem;
+  }
+  .login-text{
+    text-align: left;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    font-weight: 600;
+    color: rgb(65, 4, 19);
+    padding: 0px 0px 2rem;
+  }
+  .field-wrapper{
+    margin-bottom: 1.5rem;
+  }
+  .input-label{
+    font-weight: 600;
+    color: rgb(65, 4, 19);
+    font-size: 0.875rem;
+  }
+  .input-wrapper{
+    margin-top: 0.25rem;
+    position: relative;
+  }
+  .input-container{
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  .input{
+    background-color: #F5FAE2;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    color: rgb(65, 4, 19);
+    font-size: 1rem;
+    padding: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 1.5rem;
+  }
+  
+  .login-button{
+    color: rgb(255, 251, 243);
+    background: #B1C868;
+    border: none;
+    border-radius: 0.75rem;
+    /* transition: all 0.2s ease 0s; */
+    padding: 0.75rem;
+    font-size: 1.125rem;
+    width: 100%;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .to-signup{
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 0px 0.5rem;
+  }
+  .to-signup p{
+    text-align: left;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: rgb(128, 88, 98);
+    padding: 0px 0.5rem 0px 0px;
+  }
+  .to-signup a {
+    color: #B1C868;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-decoration: none;
+  }
+  .photo-section{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 3.5rem 15% 3.5rem 0px;
+    box-sizing: border-box;
+    height: 100%;
+    background-color: #F5FAE2;
+    flex-basis: 40%;
+  }
+  .photo-container{
+    position: relative;
+    right: 4rem;
+  }
+  .photo-container::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border: 3px solid red;
+    transform: rotate(-8deg);
+  }
+  .photo-container img{
+    width: 375px;
+    height: 480px;
+  }
+  

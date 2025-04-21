@@ -1,0 +1,89 @@
+.profile-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.profile-page {
+  margin-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+} 
+
+.col-2 {
+  flex-basis: 17%;
+
+}
+
+.col-8 {
+  flex-basis: 80%;
+
+}
+
+.profile-tabs {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid rgb(129, 192, 138);
+}
+
+.profile-tab {
+  font-size: 1.2em;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.hidden {
+  display: none;
+}
+
+.profile-content{
+  justify-content: space-around;
+  display: inline-block;
+  width: 75%;
+}
+
+.profile-tab.active {
+  text-decoration: underline;
+}
+
+.profile-content > div {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.profile-content > div.active {
+  opacity: 1;
+}
+
+.profile-books ul,
+.profile-stories ul,
+.profile-reviews ul {
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-books li,
+.profile-stories li,
+.profile-reviews li {
+  margin-bottom: 5px;
+}
+
+.profile-books h2,
+.profile-stories h2,
+.profile-reviews h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}

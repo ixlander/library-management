@@ -1,0 +1,347 @@
+
+#const-part {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: 150px;
+  top: 80px;
+  width: 200px;
+}
+
+.read {
+  margin-left: -15px;
+  width: 300px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  background-color: #3F8363;
+  color: white;
+  font-size: 17px;
+}
+
+#fav {
+  border: 1px solid #3F8363;
+  background-color: rgb(255, 255, 255);
+  margin-left: -15px;
+  width: 300px;
+  height: 40px;
+  border-radius: 20px;
+  color: rgb(0, 0, 0);
+  font-size: 17px;
+}
+
+#share-book {
+  width: 300px;
+  font-size: 18.5px;
+  margin-left: 40px;
+}
+
+#medias {
+  margin-left: 50px;
+}
+
+#characteristics {
+  margin-top: -480px;
+  margin-left: 480px; 
+  width: 920px;
+}
+
+#b-title {
+  font-family: 'Playfair Display';  
+  font-weight: bold; 
+  font-size: 44px;
+  color: #1e1915;
+}
+
+#b-author {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 26px;
+  color: #413e3a;
+  margin-top: -30px;
+}
+
+#b-description {
+  font-family: 'Proxima Nova', sans-serif;
+  color: #1e1b19;
+}
+
+#b-category {
+  font-style: italic;
+}
+
+#line {
+  margin-left: 480px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 60%;
+  border-bottom: 1px solid black;
+}
+
+#comments, #reviews {
+  margin-left: 480px; /* adjust the margin value to your preference */
+}
+
+#comments p, #reviews p {
+  margin-bottom: 5px;
+}
+
+#const img {
+  width: 270px;
+  height: 320px;
+}
+
+#const button {
+  margin-top: 10px;
+}
+
+#const #share-book {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+#const .media {
+  width: 30px;
+  height: 30px;
+  margin: 5px 10px;
+}
+
+.cool-word {
+  padding-left: 2px;
+  font-size: 30px;
+  padding-bottom: 20px;
+}
+
+/* Comments */
+
+#comments {
+  margin: 20px;
+  padding: 10px;
+  width: 59%;
+  margin-left: 480px;
+  border: 1px solid #acc7b8;
+  background-color: #259f56;
+  border-radius: 6px;
+}
+
+.cool-word {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-top: 7px;
+  margin-left: 5px;
+}
+
+.comment {
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.comment-author {
+  font-weight: bold;
+  font-size: 25px;
+  margin-top: 0;
+  border-top: 0;
+  margin-bottom: 0;
+  border-top: 0;
+}
+
+.comment-content {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  font-family:'Proxima Nova', sans-serif;
+}
+
+.comment-date {
+  font-style: italic;
+  color: #999;
+  margin-top: 0px;
+}
+
+.delete-button {
+  background-color: #f44336; /* Red */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-right: 8px;
+  cursor: pointer;
+  margin-left: 700px;
+}
+
+.delete-button:hover {
+  background-color: #d32f2f; /* Darker red */
+}
+
+.update-button {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.update-button:hover {
+  background-color: #3e8e41; /* Darker green */
+}
+
+.no-content {
+  font-style: italic;
+  font-size: 25px;
+  color: rgb(211, 210, 210);
+  margin-left: 10px;
+  margin-top: 0;
+}
+
+.leave {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color:rgb(255, 255, 255);
+  margin-top: 20px;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+#special {
+  color: green;
+  font-weight: bold;
+}
+
+.rate {
+  margin-left: 15px;
+}
+
+.input-comment {
+  width: 92%;
+  padding: 5px;
+  height: 20px;
+  margin-right: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.ok-button {
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.ok-button:hover {
+  background-color: #3e8e41;
+}
+
+/* Reviews */
+#reviews {
+  background-color: #FFD700;	
+  padding: 20px;
+  width: 58%;
+  border-radius: 6px;
+}
+
+/* Review writing part */
+
+#would-you {
+  font-family: 'Libre Baskerville', serif;
+  font-weight: bold;
+  margin-left: 10px;
+  font-size: 25px;
+}
+
+#help-others {
+  font-size: 22px;
+  font-style: italic;
+  margin-left: 10px;
+}
+
+.opinion {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  color: #4CAF50;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.input-review {
+  display: block;
+  width: 96%;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1.2em;
+  margin-left: 8px;
+}
+
+.submit-button {
+  display: block;
+  width: 98%;
+  padding: 10px;
+  border: none;
+  margin-left: 8px;
+  border-radius: 5px;
+  background-color: #99de4f;
+  color: #fff;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#submit-button:hover {
+  background-color: #1a8d2f;
+}
+
+/* Extra-books */
+
+#extra-books {
+  margin-bottom: 20px;
+  margin-left: 480px;
+  padding-left: 20px;
+}
+
+#extra-word {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#extra-image {
+  width: 200px;
+  height: 250px;
+}
+
+#extra-title {
+  font-family: 'Libre Baskerville', serif;
+  font-weight: bold;
+  margin: 5px 18px;
+}
+
+#extra-author {
+  margin-left: 30px;
+  font-size: 15px;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+#extra-year {
+  margin-top: -10px;
+  font-size: 12px;
+  font-style: italic;
+  color: #333;
+  margin-left: 80px;
+}

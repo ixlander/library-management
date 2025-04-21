@@ -1,0 +1,119 @@
+/* Set up wrapper */
+#wrapper {
+  background-size: cover;
+  margin: 0 auto;
+  display: flex;
+  max-width: 960px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+#wrapper::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: url('/assets/images/aest.mp4') no-repeat center;
+  opacity: 0.33;
+  z-index: -1;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-attachment: fixed; /* Add this line to make the background fixed */
+
+}
+
+/* Style header */
+#header {
+  width: 100%;
+  margin-bottom: 30px;
+  font-family: "Lucida Console";
+  text-align: center;
+}
+
+#header h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+/* Style first page */
+#first-page {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+/* Style greetings */
+#greetings {
+  width: 100%;
+  margin-bottom: 30px;
+  font-family: 'Lato', sans-serif;
+}
+
+#greetings h1 {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Style description-1 */
+#description-1 {
+  width: 100%;
+  margin-bottom: 30px;
+  font-family: "Courier New";
+}
+
+#description-1 h2 {
+  font-size: 18px;
+  text-align: center;
+}
+
+/* Style description-2 */
+#description-2 {
+  width: 100%;
+  margin-bottom: 30px;
+  font-weight: normal;
+  font-family: "Courier New";
+}
+
+#description-2 h3 {
+  font-size: 16px;
+  text-align: center;
+}
+
+
+
+/* Style second page */
+#second-page {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+/* Style our-story */
+#our-story {
+  width: 100%;
+  margin-bottom: 30px;
+  font-family: cursive;
+}
+
+#our-story h2 {
+  font-size: 18px;
+  text-align: center;
+}
+
+#cont-page{
+  /*background-color: rgba(228, 236, 228, 0.7);*/
+
+}

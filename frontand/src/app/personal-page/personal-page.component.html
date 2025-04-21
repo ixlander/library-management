@@ -1,0 +1,36 @@
+<div class="profile-container">
+  <div class="profile-page">
+    <div class="row">
+      <div class="col-2"><img src="/assets/images/pp.jpeg" width="150px"></div>
+      <div class="col-8">
+        <h1>My Profile</h1>
+        <p>Name: {{user.username}}</p>
+        <p>Email: {{user.email}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="profile-tabs">
+    <div class="profile-tab" [ngClass]="{'active': activeTab === 'books'}" (click)="setActiveTab('books')">Saved books</div>
+    <div class="profile-tab" [ngClass]="{'active': activeTab === 'topbook'}" (click)="setActiveTab('topbook')"> BookShelfs</div>
+    <div class="profile-tab" [ngClass]="{'active': activeTab === 'reviews'}" (click)="setActiveTab('reviews')">My reviews</div>
+  </div>
+
+  <div class="profile-content">
+    <div class="profile-books" *ngIf="activeTab === 'books'"[ngClass]="{'active': activeTab === 'books'}" >
+      <h2>Saved books</h2>
+    </div>
+    <div class="profile-books" *ngIf="activeTab === 'topbook'"[ngClass]="{'active': activeTab === 'topbook'}" >
+      <h2>BookShelfs</h2>
+    </div>
+    <div class="profile-reviews" *ngIf="activeTab === 'reviews'" [ngClass]="{'active': activeTab === 'reviews'}" >
+      <h2>Reviews</h2>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+

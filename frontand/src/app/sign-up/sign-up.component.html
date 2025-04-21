@@ -1,0 +1,40 @@
+<ng-container *ngIf="!logged">
+    <div class="sign-in-page">
+      <div class="sign-in-form-container">
+        <p class="login-text">Login</p>
+        <form class="form">
+          <div class="field-wrapper">
+            <label for="username" class="input-label">Username</label>
+            <div class="input-wrapper">
+              <div class="input-container">
+                <input type="text" [(ngModel)]="username" placeholder="Email address" class="input"  [ngModelOptions]="{standalone: true}">
+              </div>
+          </div>
+          <div class="field-wrapper">
+            <label for="password" class="input-label">Password</label>
+            <div class="input-wrapper">
+              <div class="input-container">
+                <input  type="password"  [(ngModel)]="password" class="input" placeholder="Password"  [ngModelOptions]="{standalone: true}">
+              </div>
+            </div>          </div>
+  
+      </div>
+          <button type="submit" class="login-button" (click)="login()">Log in</button>
+        </form>
+        <div class="to-signup">
+          <p>New here?</p>
+          <a routerLink="">Sign Up</a>
+        </div>
+      </div>
+      <div class="photo-section">
+        <div class="photo-container">
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  
+  <ng-container *ngIf="logged">
+    <button (click)="logout()">Log out</button>
+    <app-books></app-books>
+  </ng-container>
+  

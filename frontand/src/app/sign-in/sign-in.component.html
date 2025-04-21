@@ -1,0 +1,21 @@
+<ng-container *ngIf="!logged" id="wrapper">
+    <div class="container">
+        <div class="form-box">
+            <div class="sign-in"><h1>Login</h1></div>
+            <form class="form" action="/users/sign_in" method="post">
+                <label for="inputEmailLogin">Email or username</label>
+                <input type="text" [(ngModel)]="username" placeholder="myname@gmail.com" id="inputEmailLogin" name="email" >
+                <label for="inputPassword">Password</label>
+                <input type="password" [(ngModel)]="password" placeholder="mypassword" id="inputPassword" name="password" >
+                <div id="newPassword">
+                    <a routerLink="/password" >Password Trouble?</a>
+                </div>
+                <button type="submit" (click)="login()" id="submit">Sign in Librarium</button>
+                <div class="sign_up">Don't have an account?
+                    <a routerLink="/sign-up" class="raw-link">Sign Up</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-container>
+<ng-container *ngIf="logged"><app-books></app-books></ng-container>

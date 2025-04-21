@@ -1,19 +1,19 @@
 from rest_framework import serializers
-from .models import User, Book, Review, Favorite, ReadingProgress
+from .models import Category, Book, Review, BookShelf, Comment, FavBook
+from django.contrib.auth.models import User
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['user_id', 'username', 'email', 'is_admin']
-        read_only_fields = ['user_id']
+        fields = ['id','username','email']
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
-    
+
     class Meta:
         model = User
         fields = ['username', 'email', 'password']
-    
+
     def create(self, validated_data):
         user = User.objects.create_user(
             username=validated_data['username'],
@@ -22,65 +22,93 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         )
         return user
 
-class BookSerializer(serializers.ModelSerializer):
-    average_rating = serializers.SerializerMethodField()
-    
-    class Meta:
-        model = Book
-        fields = ['book_id', 'title', 'author', 'genre', 'description', 'average_rating']
-    
+class CategorySerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    name = serializers.CharField(max_length=100)
+
+    def create(self, validated_data):
+        return Category.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        instance.name = validated_data.get('name', instance.name)
+        instance.save()
+        return instance
+
+
+class BookSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    title = serializers.CharField(max_length=100)
+    author = serializers.CharField(max_length=50)
+    year = serializers.IntegerField()
+    publisher = serializers.CharField(max_length=255)
+    image = serializers.URLField()
+    category = CategorySerializer()
+    description = serializers.CharField()
+    rating = serializers.FloatField()
+
     def get_average_rating(self, obj):
         reviews = obj.reviews.all()
         if reviews:
             return sum(review.rating for review in reviews) / len(reviews)
         return None
 
-class BookDetailSerializer(BookSerializer):
-    reviews = serializers.SerializerMethodField()
-    
-    class Meta(BookSerializer.Meta):
-        fields = BookSerializer.Meta.fields + ['reviews']
-    
-    def get_reviews(self, obj):
-        reviews = obj.reviews.all()
-        return ReviewSerializer(reviews, many=True).data
+    def create(self, validated_data):
+        category_data = validated_data.pop('category')
+        category = Category.objects.get(id=category_data['id'])
+        return Book.objects.create(category=category, **validated_data)
+
+    def update(self, instance, validated_data):
+        category_data = validated_data.pop('category')
+        category = Category.objects.get(id=category_data['id'])
+        instance.title = validated_data.get('title', instance.title)
+        instance.author = validated_data.get('author', instance.author)
+        instance.year = validated_data.get('year', instance.year)
+        instance.publisher = validated_data.get('publisher', instance.publisher)
+        instance.image = validated_data.get('image', instance.image)
+        instance.category = category
+        instance.description = validated_data.get('description', instance.description)
+        instance.rating = validated_data.get('rating', instance.rating)
+        instance.save()
+        return instance
+
+
 
 class ReviewSerializer(serializers.ModelSerializer):
-    user = serializers.SerializerMethodField()
-    
-    class Meta:
-        model = Review
-        fields = ['review_id', 'rating', 'comment', 'user', 'book', 'created_at']
-        read_only_fields = ['review_id', 'created_at']
-    
-    def get_user(self, obj):
-        return obj.user.username
+    username = serializers.ReadOnlyField(source='user.username')
 
-class CreateReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
-        fields = ['book', 'rating', 'comment']
-    
+        fields = ['id', 'book', 'user', 'username', 'rating', 'comment', 'date']
+
+class BookShelfSerializer(serializers.ModelSerializer):
+    books = BookSerializer(many=True)
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+
+    class Meta:
+        model = BookShelf
+        fields = ['id', 'name', 'user', 'books']
+
+class CommentSerializer(serializers.ModelSerializer):
+    username = serializers.ReadOnlyField(source='user.username')
+    # user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+
+    class Meta:
+        model = Comment
+        fields = ['id', 'book', 'user', 'username', 'content', 'date']
+
+
+
+class FavBookSerializer(serializers.ModelSerializer):
+    username = serializers.ReadOnlyField(source='user.username')
+    class Meta:
+        model = FavBook
+        fields = ['id', 'book', 'user', 'username']
+
     def create(self, validated_data):
-        user = self.context['request'].user
-        review = Review.objects.create(
-            user=user,
-            **validated_data
-        )
-        return review
+        try:
+            fav_book = FavBook.objects.create(**validated_data)
+            return fav_book
+        except IntegrityError:
+            raise serializers.ValidationError("This book is already in your favorites.")
 
-class FavoriteSerializer(serializers.ModelSerializer):
-    book_details = BookSerializer(source='book', read_only=True)
-    
-    class Meta:
-        model = Favorite
-        fields = ['favorite_id', 'book', 'book_details']
-        read_only_fields = ['favorite_id']
 
-class ReadingProgressSerializer(serializers.ModelSerializer):
-    book_details = BookSerializer(source='book', read_only=True)
-    
-    class Meta:
-        model = ReadingProgress
-        fields = ['progress_id', 'book', 'progress', 'updated_at', 'book_details']
-        read_only_fields = ['progress_id', 'updated_at']
