@@ -61,6 +61,7 @@ python -m venv venv
 source venv/bin/activate  # or venv\Scripts\activate on Windows
 
 # Install dependencies
+pip install django
 pip install -r requirements.txt
 
 # Apply migrations
