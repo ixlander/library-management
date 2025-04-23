@@ -1,11 +1,12 @@
 from rest_framework import serializers
 from .models import Category, Book, Review, BookShelf, Comment, FavBook
 from django.contrib.auth.models import User
+from django.db import IntegrityError
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id','username','email']
+        fields = ['id', 'username', 'email']
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
@@ -22,56 +23,29 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         )
         return user
 
-class CategorySerializer(serializers.Serializer):
-    id = serializers.IntegerField(read_only=True)
-    name = serializers.CharField(max_length=100)
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = ['id', 'name']
 
-    def create(self, validated_data):
-        return Category.objects.create(**validated_data)
-
-    def update(self, instance, validated_data):
-        instance.name = validated_data.get('name', instance.name)
-        instance.save()
-        return instance
-
-
-class BookSerializer(serializers.Serializer):
-    id = serializers.IntegerField(read_only=True)
-    title = serializers.CharField(max_length=100)
-    author = serializers.CharField(max_length=50)
-    year = serializers.IntegerField()
-    publisher = serializers.CharField(max_length=255)
-    image = serializers.URLField()
-    category = CategorySerializer()
-    description = serializers.CharField()
-    rating = serializers.FloatField()
+class BookSerializer(serializers.ModelSerializer):
+    category = CategorySerializer(read_only=True)
+    category_id = serializers.PrimaryKeyRelatedField(
+        queryset=Category.objects.all(), 
+        source='category', 
+        write_only=True
+    )
+    
+    class Meta:
+        model = Book
+        fields = ['id', 'title', 'author', 'year', 'publisher', 'image', 
+                 'category', 'category_id', 'description', 'rating', 'likes', 'link']
 
     def get_average_rating(self, obj):
         reviews = obj.reviews.all()
         if reviews:
             return sum(review.rating for review in reviews) / len(reviews)
         return None
-
-    def create(self, validated_data):
-        category_data = validated_data.pop('category')
-        category = Category.objects.get(id=category_data['id'])
-        return Book.objects.create(category=category, **validated_data)
-
-    def update(self, instance, validated_data):
-        category_data = validated_data.pop('category')
-        category = Category.objects.get(id=category_data['id'])
-        instance.title = validated_data.get('title', instance.title)
-        instance.author = validated_data.get('author', instance.author)
-        instance.year = validated_data.get('year', instance.year)
-        instance.publisher = validated_data.get('publisher', instance.publisher)
-        instance.image = validated_data.get('image', instance.image)
-        instance.category = category
-        instance.description = validated_data.get('description', instance.description)
-        instance.rating = validated_data.get('rating', instance.rating)
-        instance.save()
-        return instance
-
-
 
 class ReviewSerializer(serializers.ModelSerializer):
     username = serializers.ReadOnlyField(source='user.username')
@@ -81,25 +55,20 @@ class ReviewSerializer(serializers.ModelSerializer):
         fields = ['id', 'book', 'user', 'username', 'rating', 'comment', 'date']
 
 class BookShelfSerializer(serializers.ModelSerializer):
-    books = BookSerializer(many=True)
-    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
-
     class Meta:
         model = BookShelf
         fields = ['id', 'name', 'user', 'books']
 
 class CommentSerializer(serializers.ModelSerializer):
     username = serializers.ReadOnlyField(source='user.username')
-    # user = serializers.HiddenField(default=serializers.CurrentUserDefault())
 
     class Meta:
         model = Comment
         fields = ['id', 'book', 'user', 'username', 'content', 'date']
 
-
-
 class FavBookSerializer(serializers.ModelSerializer):
     username = serializers.ReadOnlyField(source='user.username')
+    
     class Meta:
         model = FavBook
         fields = ['id', 'book', 'user', 'username']
@@ -110,5 +79,3 @@ class FavBookSerializer(serializers.ModelSerializer):
             return fav_book
         except IntegrityError:
             raise serializers.ValidationError("This book is already in your favorites.")
-
-

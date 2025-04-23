@@ -1,9 +1,14 @@
 from django.urls import path
 from api import views
-from rest_framework_jwt.views import obtain_jwt_token
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
+
 urlpatterns = [
     path('user/',views.get_user),
-    path('login/',obtain_jwt_token),
+    path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('newPassword/',views.update_password),
     path('register/',views.register),
     path('bookshelves/',views.get_bookshelves), 
@@ -27,5 +32,5 @@ urlpatterns = [
     path('favbook-create/', views.FavBookCreateAPIView.as_view()),
     path('favbook-delete/<int:id>', views.FavBookDeleteAPIView.as_view()),
     path('book/<int:book_id>/like/', views.like_book, name='like_book'),
-    path('book/<int:book_id>/undolike/', views.undolike_book, name='like_book'),
+    path('book/<int:book_id>/undolike/', views.undolike_book, name='like_book')
 ]
