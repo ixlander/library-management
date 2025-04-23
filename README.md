@@ -54,7 +54,7 @@ cd library-management
 ### 2️⃣ Backend Setup (Django)
 
 ```bash
-cd backend
+cd library_backend
 
 # (Optional) Create virtual environment
 python -m venv venv
