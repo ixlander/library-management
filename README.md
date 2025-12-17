@@ -7,7 +7,7 @@ A full-stack web application for managing books and manga collections. Users can
 
 ## 👨‍💻 Authors
 
-- **Abakarov Abumuslim**
+- **Abakarov Maxim**
 - **Beisen Abylai**
 - **Kumar Aray**
 
